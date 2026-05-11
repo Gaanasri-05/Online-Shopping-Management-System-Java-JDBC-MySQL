@@ -1,0 +1,84 @@
+package zomato;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+@Entity
+
+public class Orders {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String Cname;
+	private long Cphone;
+	private String Caddress;
+	@CreationTimestamp
+	private  LocalDateTime  orderedDateTime;
+	@UpdateTimestamp
+	private  LocalDateTime  deliveredDateTime;
+	public Orders() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Orders(int id, String cname, long cphone, String caddress, LocalDateTime orderedDateTime,
+			LocalDateTime deliveredDateTime) {
+		super();
+		this.id = id;
+		Cname = cname;
+		Cphone = cphone;
+		Caddress = caddress;
+		this.orderedDateTime = orderedDateTime;
+		this.deliveredDateTime = deliveredDateTime;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCname() {
+		return Cname;
+	}
+	public void setCname(String cname) {
+		Cname = cname;
+	}
+	public long getCphone() {
+		return Cphone;
+	}
+	public void setCphone(long cphone) {
+		Cphone = cphone;
+	}
+	public String getCaddress() {
+		return Caddress;
+	}
+	public void setCaddress(String caddress) {
+		Caddress = caddress;
+	}
+	public LocalDateTime getOrderedDateTime() {
+		return orderedDateTime;
+	}
+	public void setOrderedDateTime(LocalDateTime orderedDateTime) {
+		this.orderedDateTime = orderedDateTime;
+	}
+	public LocalDateTime getDeliveredDateTime() {
+		return deliveredDateTime;
+	}
+	public void setDeliveredDateTime(LocalDateTime deliveredDateTime) {
+		this.deliveredDateTime = deliveredDateTime;
+	}
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", Cname=" + Cname + ", Cphone=" + Cphone + ", Caddress=" + Caddress
+				+ ", orderedDateTime=" + orderedDateTime + ", deliveredDateTime=" + deliveredDateTime + "]";
+	}
+	
+	
+
+}
